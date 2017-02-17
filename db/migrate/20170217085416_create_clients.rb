@@ -1,7 +1,7 @@
 class CreateClients < ActiveRecord::Migration[5.0]
   def change
     create_table :clients do |t|
-      t.belongs_to :organization
+      t.belongs_to :organization, index: true
       t.string :last_name
       t.string :first_name
       t.string :medicaid
@@ -21,7 +21,8 @@ class CreateClients < ActiveRecord::Migration[5.0]
       t.date :last_home_visit
       t.string :languages
       t.date :advanced_directive
+
+      t.timestamps
     end
-    add_index :clients, :organization_id
   end
 end

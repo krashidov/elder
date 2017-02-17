@@ -1,8 +1,9 @@
 class CreateTasks < ActiveRecord::Migration[5.0]
+  def change
     create_table :tasks do |t|
-      t.belongs_to :organization
-      t.belongs_to :careplan
-      t.belongs_to :task_type
+      t.belongs_to :organization, index: true
+      t.belongs_to :careplan, index: true
+      t.belongs_to :task_type, index: true
 
       t.boolean :monday,    default: false, null: false
       t.boolean :tuesday,   default: false, null: false
@@ -14,9 +15,5 @@ class CreateTasks < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-
-    add_index :tasks, :organization_id
-    add_index :tasks, :careplan_id
-    add_index :tasks, :task_type_id
   end
 end

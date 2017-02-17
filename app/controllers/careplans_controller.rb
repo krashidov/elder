@@ -1,4 +1,5 @@
 class CareplansController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_careplan, only: [:show, :edit, :update, :destroy]
 
   # GET /careplans

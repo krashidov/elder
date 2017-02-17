@@ -4,10 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #rolify
-  #has_paper_trail
+  # rolify
+  # has_paper_trail
 
-  #belongs_to :organization
+  belongs_to :organization
 
-  #validates :organization, presence: true
+  validates :organization_id, presence: true, numericality: { only_integer: true }
+  validate :validate_organization_id
+
+private 
+  def validate_organization_id
+     errors.add(:organization_id, "is invalid") unless Organization.exists?(self.organization_id)
+  end
 end

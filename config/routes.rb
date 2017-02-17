@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks
   resources :task_types
   resources :careplans
   resources :clients

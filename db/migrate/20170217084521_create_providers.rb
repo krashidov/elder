@@ -1,7 +1,7 @@
 class CreateProviders < ActiveRecord::Migration[5.0]
   def change
     create_table :providers do |t|
-      t.belongs_to :organizations, index: true
+      t.belongs_to :organization, index: true
       t.string :last_name
       t.string :first_name
       t.string :ssi
@@ -21,11 +21,7 @@ class CreateProviders < ActiveRecord::Migration[5.0]
       t.date :id_expiration_date
       t.date :work_authorization_expiration
       t.boolean :active, default: true
-      t.boolean :active, default: true
-      t.boolean :active, default: true
-      t.boolean :active, default: true
-      t.boolean :active, default: true
-      
+
       t.timestamps
     end
   end

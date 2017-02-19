@@ -50,7 +50,7 @@ class ProvidersController < ApplicationController
         format.json { render json: @provider.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end 
 
   # DELETE /providers/1
   # DELETE /providers/1.json
@@ -70,6 +70,6 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.fetch(:provider, {})
+      helpers.sanitized_params(Provider, params)
     end
 end

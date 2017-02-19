@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170217091022) do
   end
 
   create_table "providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "organizations_id"
+    t.integer  "organization_id"
     t.string   "last_name"
     t.string   "first_name"
     t.string   "ssi"

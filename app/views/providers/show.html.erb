@@ -1,4 +1,39 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row">
+  <h1 class="display-3">Personal Care Provider</h1>
+</div>
+<div class="row">
+  <h1 class="display-4"><%= @provider.last_name %>, <%= @provider.first_name %></h1>
+</div>
+
+
+
+
+<dl class="row">
+  <dt class="col-sm-4">DOB:</dt>
+  <dd class="col-sm-8"><%= @provider.date_of_birth %></dd>
+
+  <dt class="col-sm-4">SSI</dt>
+  <dd class="col-sm-8"><%= @provider.ssi %></dd>
+
+  <dt class="col-sm-4">Address</dt>
+  <dd class="col-sm-8"><%= @provider.address %> <%= @provider.city %> <%= @provider.state %> <%= @provider.postal_code %></dd>
+
+  <dt class="col-sm-4">Emergency Contact Information</dt>
+  <dd class="col-sm-8"><%= @provider.emergency_contact_info %></dd>
+
+  <dt class="col-sm-4">Last Staff Evaluation Date</dt>
+  <dd class="col-sm-8"><%= @provider.staff_evaluation_date %></dd>
+
+  <dt class="col-sm-4">Last Safety Training Date</dt>
+  <dd class="col-sm-8"><%= @provider.staff_evaluation_date %></dd>
+
+  <dt class="col-sm-4">ID Expiration Date</dt>
+  <dd class="col-sm-8"><%= @provider.id_expiration_date %></dd>
+
+  <dt class="col-sm-4">Work Authorization Expiration</dt>
+  <dd class="col-sm-8"><%= @provider.work_authorization_expiration %></dd>
+</dl>
 <%= link_to 'Edit', edit_provider_path(@provider) %> |
 <%= link_to 'Back', providers_path %>

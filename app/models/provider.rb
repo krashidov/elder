@@ -32,7 +32,7 @@ class Provider < ApplicationRecord
 #  index_providers_on_organization_id  (organization_id)
 #
 
-  has_paper_trail
+  # has_paper_trail
  
   belongs_to :organization
   has_many :careplans, dependent: :destroy

@@ -7,3 +7,45 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 orgs = Organization.create({name: 'Colorado Spirit Home Care'})
+clients = Client.create({
+  organization_id: 1,
+  medicaid: 'abc123',
+  last_name: 'Doe',
+  first_name: 'Jane',
+  ssi: '123456789',
+  phone_number: '3035555555',
+  address: '123 Fake St',
+  city: 'Boulder',
+  state: 'CO',
+  postal_code: '80013',
+  case_manager: 'Robert Evans',
+  manager_phone: '3035555555',
+  date_of_birth: Time.now,
+  par_expiration: Time.now,
+  emergency_contact_info: 'John, 222-2222'
+})
+
+providers = Provider.create({
+  last_name: 'Dobson',
+  first_name: 'John',
+  ssi: '123456',
+  phone_number: '555-5555',
+  address: '124 Not Real St',
+  city: 'Boulder',
+  state: 'CO',
+  postal_code: '80302',
+  emergency_contact_info: 'Joe, 555-5556',
+  staff_evaluation_date: Time.now,
+  safety_training_date: Time.now,
+  id_expiration_date: Time.now,
+  work_authorization_expiration: Time.now,
+  organization_id: 1
+})
+
+careplans = Careplan.create({
+  organization_id: 1,
+  provider_id: Provider.first.id,
+  client_id: Client.first.id,
+  start_date: Time.now,
+  procedure_code: '123'
+})

@@ -1,4 +1,71 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <h1 class="display-3">Client</h1>
+</div>
+<div class="row">
+  <h1 class="display-4"><%= @client.last_name %>, <%= @client.first_name %></h1>
+  <div>
+    <% if @client.active %>
+      <span class="badge badge-success">Active</span>
+    <% else %>
+      <span class="badge badge-danger">None Active</span>
+    <% end %>
+  </div>
+</div>
 
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <th scope="row">DOB:</th>
+      <td><%= @client.date_of_birth %></td>
+    </tr>
+    <tr>
+      <th scope="row">SSI</th>
+      <td><%= @client.ssi %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">Address</th>
+      <td><%= @client.display_address %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">Medicaid Number</th>
+      <td><%= @client.medicaid %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">SSI</th>
+      <td><%= @client.ssi %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">Phone Number</th>
+      <td><%= @client.phone_number %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">Case Manager</th>
+      <td><%= @client.case_manager %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">Case Manager Phone Number</th>
+      <td><%= @client.manager_phone %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">PAR Expiration</th>
+      <td><%= @client.par_expiration %></td>
+    </tr>
+
+    <tr>
+      <th scope="row">Emergency Contact Information</th>
+      <td><%= @client.emergency_contact_info %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= render 'careplans/list', careplans: @client.careplans %>
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

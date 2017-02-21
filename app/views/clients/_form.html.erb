@@ -30,4 +30,10 @@
   <%= f.input :last_home_visit %>
   <%= f.input :languages %>
   <%= f.input :advanced_directive %>
+  <%= f.input :active %>
+  <%= f.input :discharge_date, include_blank: true %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

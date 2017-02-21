@@ -51,10 +51,17 @@ class Provider < ApplicationRecord
   validates :safety_training_date, presence: true
   validates :id_expiration_date, presence: true
   validates :work_authorization_expiration, presence: true
-  validates :active, presence: true
   validates :organization, presence: true
 
   def allowed_attributes
     @attributes
+  end
+
+  def name
+    self.first_name + " " + self.last_name
+  end
+
+  def display_address
+    "#{@address} #{@city}, #{@state} #{@postal_code}"
   end
 end

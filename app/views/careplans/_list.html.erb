@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Client Name</th>
+      <th>Provider Name</th>
+      <th>Start Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% careplans.each do |careplan| %>
+      <tr>
+        <td><%= link_to careplan.client.name, careplan.client %></td>
+        <td><%= link_to careplan.provider.name, careplan.provider %></td>
+        <td><%= careplan.start_date %></td>
+        <td><%= link_to 'Show Careplan', careplan %> | <%= link_to 'Edit', edit_careplan_path(careplan) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

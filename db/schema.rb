@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217091022) do
+ActiveRecord::Schema.define(version: 20170220202846) do
 
   create_table "careplans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "organization_id"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20170217091022) do
     t.date     "advanced_directive"
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
+    t.boolean  "active"
+    t.date     "discharge_date"
     t.index ["organization_id"], name: "index_clients_on_organization_id", using: :btree
   end
 
@@ -81,7 +83,7 @@ ActiveRecord::Schema.define(version: 20170217091022) do
     t.boolean  "active",                        default: true
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
-    t.index ["organizations_id"], name: "index_providers_on_organizations_id", using: :btree
+    t.index ["organization_id"], name: "index_providers_on_organizations_id", using: :btree
   end
 
   create_table "task_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -25,4 +25,12 @@ class Client < ApplicationRecord
   def attributes
     @attributes
   end
+
+  def name
+    self.first_name + " " + self.last_name
+  end
+
+  def display_address
+    "#{@address} #{@city}, #{@state} #{@postal_code}"
+  end
 end

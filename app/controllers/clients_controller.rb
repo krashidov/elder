@@ -5,7 +5,10 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    respond_to do |format|
+      format.html
+      format.json { render json: ClientDatatable.new(view_context) }
+    end
   end
 
   # GET /clients/1

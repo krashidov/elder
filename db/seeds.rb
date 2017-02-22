@@ -7,23 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 orgs = Organization.create({name: 'Colorado Spirit Home Care'})
-clients = Client.create({
-  organization_id: 1,
-  medicaid: 'abc123',
-  last_name: 'Doe',
-  first_name: 'Jane',
-  ssi: '123456789',
-  phone_number: '3035555555',
-  address: '123 Fake St',
-  city: 'Boulder',
-  state: 'CO',
-  postal_code: '80013',
-  case_manager: 'Robert Evans',
-  manager_phone: '3035555555',
-  date_of_birth: Time.now,
-  par_expiration: Time.now,
-  emergency_contact_info: 'John, 222-2222'
-})
+
+
+12.times do |i| 
+  clients = Client.create({
+    organization_id: 1,
+    medicaid: "abc123#{i}",
+    last_name: 'Doe',
+    first_name: 'Jane',
+    ssi: '123456789',
+    phone_number: '3035555555',
+    address: '123 Fake St',
+    city: 'Boulder',
+    state: 'CO',
+    postal_code: '80013',
+    case_manager: 'Robert Evans',
+    manager_phone: '3035555555',
+    date_of_birth: Time.now,
+    par_expiration: Time.now,
+    emergency_contact_info: 'John, 222-2222'
+  })
+end
 
 providers = Provider.create({
   last_name: 'Dobson',

@@ -10,6 +10,8 @@ jQuery(document).ready(function() {
     "columns": [
       {data: 'first_name'},
       {data: 'last_name'},
+      {data: 'date_of_birth'},
+      {data: 'par_expiration'},
     ],
     // optional, if you want full pagination controls.
     // Check dataTables documentation to learn more about

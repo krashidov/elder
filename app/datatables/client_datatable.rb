@@ -4,7 +4,9 @@ class ClientDatatable < AjaxDatatablesRails::Base
     # or in aliased_join_table.column_name format
     @view_columns ||= {
       first_name: {source: "Client.first_name", cond: :like },
-      last_name: {source: "Client.last_name", cond: :like }
+      last_name: {source: "Client.last_name", cond: :like },
+      date_of_birth: {source: "Client.date_of_birth", cond: :like },
+      par_expiration: {source: "Client.par_expiration", cond: :like }
       # id: { source: "User.id", cond: :eq },
       # name: { source: "User.name", cond: :like }
     }
@@ -14,7 +16,9 @@ class ClientDatatable < AjaxDatatablesRails::Base
     records.map do |record|
       {
         first_name: record.first_name,
-        last_name: record.last_name
+        last_name: record.last_name,
+        date_of_birth: record.date_of_birth,
+        par_expiration: record.par_expiration
         # example:
         # id: record.id,
         # name: record.name
@@ -25,7 +29,7 @@ class ClientDatatable < AjaxDatatablesRails::Base
   private
 
   def get_raw_records
-    Client.all
+    Client.where(organization_id: 1)
   end
 
   # ==== These methods represent the basic operations to perform on records

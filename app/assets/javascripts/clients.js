@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-jQuery(document).ready(function() {
+jQuery(document).on('turbolinks:load', function() {
   $('#clients-table').DataTable({
     "processing": true,
     "serverSide": true,
@@ -12,6 +12,7 @@ jQuery(document).ready(function() {
       {data: 'last_name'},
       {data: 'date_of_birth'},
       {data: 'par_expiration'},
+      {data: 'actions'},
     ],
     // optional, if you want full pagination controls.
     // Check dataTables documentation to learn more about

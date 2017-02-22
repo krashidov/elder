@@ -1,4 +1,8 @@
 class ClientDatatable < AjaxDatatablesRails::Base
+  def_delegator :@view, :link_to
+  def_delegator :@view, :client_path
+  def_delegator :@view, :edit_client_path
+
   def view_columns
     # Declare strings in this format: ModelName.column_name
     # or in aliased_join_table.column_name format
@@ -15,10 +19,11 @@ class ClientDatatable < AjaxDatatablesRails::Base
   def data
     records.map do |record|
       {
-        first_name: record.first_name,
+        first_name: link_to(record.first_name, client_path(record)),
         last_name: record.last_name,
         date_of_birth: record.date_of_birth,
-        par_expiration: record.par_expiration
+        par_expiration: record.par_expiration,
+        actions: "#{link_to("View", client_path(record))} | #{link_to("Edit", edit_client_path(record))}"
         # example:
         # id: record.id,
         # name: record.name

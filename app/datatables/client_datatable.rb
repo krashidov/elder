@@ -19,7 +19,7 @@ class ClientDatatable < AjaxDatatablesRails::Base
   def data
     records.map do |record|
       {
-        first_name: link_to(record.first_name, client_path(record)),
+        first_name: record.first_name,
         last_name: record.last_name,
         date_of_birth: record.date_of_birth,
         par_expiration: record.par_expiration,

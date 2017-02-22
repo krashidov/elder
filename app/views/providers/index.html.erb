@@ -2,21 +2,20 @@
 
 <h1>Providers</h1>
 
-<table>
+<table class="table-striped" id="providers-table" data-source="<%= providers_path(format: :json) %>">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Date of Birth</th>
+      <th>Staff Evaluation Date</th>
+      <th>ID Expiration Date</th>
+      <th>Work Authorization Expiration</th>
+      <th>Safety Training Date</th>
+      <th>Actions</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @providers.each do |provider| %>
-      <tr>
-        <td><%= link_to 'Show', provider %></td>
-        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
   </tbody>
 </table>
 

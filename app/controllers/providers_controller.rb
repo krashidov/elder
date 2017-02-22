@@ -5,7 +5,10 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.json
   def index
-    @providers = Provider.all
+    respond_to do |format|
+      format.html
+      format.json { render json: ProviderDatatable.new(view_context) }
+    end
   end
 
   # GET /providers/1

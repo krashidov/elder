@@ -12,7 +12,7 @@ jQuery(document).on('turbolinks:load', function() {
       {data: 'last_name'},
       {data: 'date_of_birth'},
       {data: 'par_expiration'},
-      {data: 'actions'},
+      {data: 'actions', bSortable: false },
     ],
     // optional, if you want full pagination controls.
     // Check dataTables documentation to learn more about

@@ -3,7 +3,7 @@
 <h1>Clients</h1>
 <%= link_to 'New Client', new_client_path %>
 
-<table class="table-striped" id="clients-table" data-source="<%= clients_path(format: :json) %>">
+<table class="table-striped" style="width: 100%;" id="clients-table" data-source="<%= clients_path(format: :json) %>">
   <thead>
     <tr>
       <th>First Name</th>

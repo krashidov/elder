@@ -5,7 +5,10 @@ class CareplansController < ApplicationController
   # GET /careplans
   # GET /careplans.json
   def index
-    @careplans = Careplan.all
+    respond_to do |format|
+      format.html
+      format.json { render json: CareplanDatatable.new(view_context) }
+    end
   end
 
   # GET /careplans/1

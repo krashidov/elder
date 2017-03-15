@@ -8,10 +8,12 @@ jQuery(document).on('turbolinks:load', function() {
     "ajax": $('#careplans-table').data('source'),
     "pagingType": "full_numbers",
     "columns": [
+      {data: 'start_date'},
       {data: 'provider_last_name'},
       {data: 'provider_first_name'},
       {data: 'client_last_name'},
       {data: 'client_first_name'},
+      {data: 'actions', sortable: false},
     ],
   });
 });

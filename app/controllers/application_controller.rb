@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
 
   def set_organization
     #@organization = if current_user then current_user.organization else nil
-    @organization_params = {organization_id: current_user.organization_id}
+    @organization_params = current_user ? {organization_id: current_user.organization_id} : nil
   end
 end

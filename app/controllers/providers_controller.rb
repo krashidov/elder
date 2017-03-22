@@ -7,6 +7,12 @@ class ProvidersController < ApplicationController
   def index
     respond_to do |format|
       format.html
+      format.json { render json: Provider.where(active: true) }
+    end
+  end
+
+  def providers_datatable
+    respond_to do |format|
       format.json { render json: ProviderDatatable.new(view_context) }
     end
   end

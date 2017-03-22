@@ -39,6 +39,7 @@ gem 'simple_form'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'ajax-datatables-rails', github: 'ajahongir/ajax-datatables-rails', branch: 'v-0-4-0'
 gem 'jquery-datatables-rails'
+gem 'select2-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

@@ -7,8 +7,19 @@ class ClientsController < ApplicationController
   def index
     respond_to do |format|
       format.html
+      format.json { render json: Client.where(active: true) }
+    end
+  end
+  
+  def clients_datatable
+    respond_to do |format|
       format.json { render json: ClientDatatable.new(view_context) }
     end
+    # like_search_text = "%#{client_params[:search_text]}%"
+    # results = Client.where('organization_id = ? AND (first_name like ? OR last_name like ?)', current_user.organization_id, like_search_text, like_search_text)
+    # respond_to do |format|
+    #   format.json { render json: results }
+    # end
   end
 
   # GET /clients/1

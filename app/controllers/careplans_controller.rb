@@ -7,6 +7,12 @@ class CareplansController < ApplicationController
   def index
     respond_to do |format|
       format.html
+      format.json { render json: Careplan.all }
+    end
+  end
+
+  def careplans_datatable
+    respond_to do |format|
       format.json { render json: CareplanDatatable.new(view_context) }
     end
   end

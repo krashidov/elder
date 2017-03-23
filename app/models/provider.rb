@@ -52,6 +52,7 @@ class Provider < ApplicationRecord
   validates :id_expiration_date, presence: true
   validates :work_authorization_expiration, presence: true
   validates :organization, presence: true
+  validates :date_of_birth, presence: true
 
   def allowed_attributes
     @attributes

@@ -2,15 +2,15 @@
 // All this logic will automatically be available in application.js.
 
 function transformClientDataForSelect(data) {
-  return data.map(function(client) {
-    var text = client.last_name + ', ' + client.first_name + ' ' + client.date_of_birth;
-    return {id: client.id, text: text};
+  return data.map(function (entity) {
+    var text = entity.last_name + ', ' + entity.first_name + ' ' + entity.date_of_birth;
+    return { id: entity.id, text: text };
   });
 }
 
-function onClientLoad(data) {
+function onLoad(elementId, data) {
   var transformedData = transformClientDataForSelect(data);
-  $("#careplan-client-picker").select2({
+  $(elementId).select2({
     data: transformedData,
   });
 }
@@ -19,12 +19,19 @@ function onFail() {
   console.log("shit failed");
 }
 
-
-jQuery(document).on('turbolinks:load', function() {
-  if($("#careplan-client-picker").length) {
-    $.get('../clients.json', onClientLoad)
-      .fail(onFail);
+function loadPicker(pickerType) {
+  var elementId = '#careplan-' + pickerType + '-picker';
+  if ($(elementId).length) {
+    $.get('../' + pickerType + 's.json', function (data) {
+      onLoad(elementId, data);
+    }).fail(onFail);
   }
+}
+
+
+jQuery(document).on('turbolinks:load', function () {
+  loadPicker('client');
+  loadPicker('provider');
 
   $('#careplans-table').DataTable({
     "processing": true,
@@ -32,12 +39,12 @@ jQuery(document).on('turbolinks:load', function() {
     "ajax": $('#careplans-table').data('source'),
     "pagingType": "full_numbers",
     "columns": [
-      {data: 'start_date'},
-      {data: 'provider_last_name'},
-      {data: 'provider_first_name'},
-      {data: 'client_last_name'},
-      {data: 'client_first_name'},
-      {data: 'actions', sortable: false},
+      { data: 'start_date' },
+      { data: 'provider_last_name' },
+      { data: 'provider_first_name' },
+      { data: 'client_last_name' },
+      { data: 'client_first_name' },
+      { data: 'actions', sortable: false },
     ],
   });
 });

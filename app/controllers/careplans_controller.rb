@@ -79,6 +79,6 @@ class CareplansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def careplan_params
-      params.fetch(:careplan, {})
+      helpers.sanitized_params(Careplan, params)
     end
 end

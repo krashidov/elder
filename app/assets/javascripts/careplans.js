@@ -9,6 +9,7 @@ function transformClientDataForSelect(data) {
 }
 
 function onLoad(elementId, data) {
+  pickerLoaded = false;
   var transformedData = transformClientDataForSelect(data);
   $(elementId).select2({
     data: transformedData,
@@ -20,31 +21,23 @@ function onFail() {
 }
 
 function loadPicker(pickerType) {
+  var pickerNeedsToBeLoaded = true;
   var elementId = '#careplan-' + pickerType + '-picker';
-  if ($(elementId).length) {
-    $.get('../' + pickerType + 's.json', function (data) {
+  if ($(elementId).length && pickerNeedsToBeLoaded) {
+    $.get('../../' + pickerType + 's.json', function (data) {
       onLoad(elementId, data);
     }).fail(onFail);
   }
 }
 
-
-jQuery(document).on('turbolinks:load', function () {
+initializeDataTable('#careplans-table', [
+  { data: 'start_date' },
+  { data: 'provider_last_name' },
+  { data: 'provider_first_name' },
+  { data: 'client_last_name' },
+  { data: 'client_first_name' },
+  { data: 'actions', sortable: false },
+], function () {
   loadPicker('client');
   loadPicker('provider');
-
-  $('#careplans-table').DataTable({
-    "processing": true,
-    "serverSide": true,
-    "ajax": $('#careplans-table').data('source'),
-    "pagingType": "full_numbers",
-    "columns": [
-      { data: 'start_date' },
-      { data: 'provider_last_name' },
-      { data: 'provider_first_name' },
-      { data: 'client_last_name' },
-      { data: 'client_first_name' },
-      { data: 'actions', sortable: false },
-    ],
-  });
 });

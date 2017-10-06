@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :careplans
   resources :clients
   resources :providers
+  resources :task_types
+  
   devise_for :users, :controllers => { :registrations => 'registrations' }
   get '/dashboard', to: 'dashboard#index', as: :dashboard
   get '/clients_datatable', to: 'clients#clients_datatable', as: :clients_datatable
